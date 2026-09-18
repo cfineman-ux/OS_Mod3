@@ -1,15 +1,14 @@
 import sim_logger.py
-
+from enum import ENUM
 # classes
 # process state
 
-class ProcessState:
-    def __init__(self, READY, BLOCKED, SUSPENDED_READY,
-                 SUSPENDED_BLOCKED, FINISHED):
-        self.BLOCKED = BLOCKED
-        self.SUSPENDED_READY = SUSPENDED_READY
-        self.SUSPENDED_BLOCKED = SUSPENDED_BLOCKED
-        self.FINISHED = FINISHED
+class ProcessState(Enum):
+        READY = 0
+        BLOCKED = 1
+        SUSPENDED_READY = 2
+        SUSPENDED_BLOCKED = 3
+        FINISHED = 4
 
 class SimProcess:
     def __init__(self, pid, procName, totalInstructions):
@@ -36,5 +35,5 @@ class SimProcessor:
 class ProcessControlBlock:
     def __init__(self, currInstruction):
         self.currInstruction = currInstruction
-                
+
         
